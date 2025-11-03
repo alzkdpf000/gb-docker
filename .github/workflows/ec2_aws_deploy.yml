@@ -25,7 +25,7 @@ jobs:
 
     - name: Copy project to EC2
       run: |
-        rsync -avz -e "ssh -i ~/.ssd/id_rsa" . ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST}}:/home/ubuntu/aws-crew-station-back
+        rsync -avz -e "ssh -i ~/.ssd/id_rsa" . ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/ubuntu/aws-crew-station-back
 
     - name: Build & Run Docker on EC2
       run: |
@@ -61,8 +61,6 @@ jobs:
             -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
             -e AWS_S3_BUCKET=${{ secrets.AWS_S3_BUCKET }} \
             -e AWS_REGION=${{ secrets.AWS_REGION }} \
-            -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} \
-            -e GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} \
             -e KAKAO_CLIENT_ID=${{ secrets.KAKAO_CLIENT_ID }} \
             -e KAKAO_CLIENT_SECRET=${{ secrets.KAKAO_CLIENT_SECRET }} \
             -e NAVER_CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }} \
