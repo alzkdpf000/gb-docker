@@ -50,7 +50,7 @@ jobs:
             --build-arg NAVER_CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }} \
             --build-arg NAVER_CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }} \
           -t crew-station .
-          docker run -d -p 80:10000 --name aws-crew-station-back \
+          docker run -d -p 80:10000 --name crew-station \
             -e EC2_HOST=${{ secrets.EC2_HOST }} \
             -e EC2_DATABASE_HOST=${{ secrets.EC2_DATABASE_HOST }} \
             -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
