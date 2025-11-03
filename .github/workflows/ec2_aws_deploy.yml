@@ -26,8 +26,7 @@ jobs:
     - name: Copy project to EC2
       run: |
         rsync -avz -e "ssh -i ~/.ssd/id_rsa" . ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/ubuntu/crew-station
-    - name: Create variable for gmail password
-      run: echo "GMAIL_PASSWORD=csly lxto vgxw iuhl" >> $GITHUB_ENV
+    
     - name: Build & Run Docker on EC2
       run: |
         ssh -i ~/.ssd/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST}} << EOF
@@ -48,7 +47,7 @@ jobs:
             --build-arg NAVER_CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }} \
             --build-arg NAVER_CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }} \
             --build-arg GMAIL_USER=${{ secrets.GMAIL_USER }} \
-            --build-arg GMAIL_PASSWORD=$GMAIL_PASSWORD \
+            --build-arg GMAIL_PASSWORD="${{ secrets.GMAIL_PASSWORD }}" \
             --build-arg SMS_ACCESS_KEY=${{ secrets.SMS_ACCESS_KEY }} \
             --build-arg SMS_SECRET_KEY=${{ secrets.SMS_SECRET_KEY }} \
           -t crew-station .
@@ -65,7 +64,7 @@ jobs:
             -e NAVER_CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }} \
             -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
             -e GMAIL_USER=${{ secrets.GMAIL_USER}} \
-            -e GMAIL_PASSWORD=$GMAIL_PASSWORD \
+            -e GMAIL_PASSWORD="${{ secrets.GMAIL_PASSWORD }}" \
             -e SMS_ACCESS_KEY=${{ secrets.SMS_ACCESS_KEY }} \
             -e SMS_SECRET_KEY=${{ secrets.SMS_SECRET_KEY }} \
             crew-station
