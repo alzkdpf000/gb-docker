@@ -1,0 +1,949 @@
+/* 공통 */
+
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+body, html {
+    font-size: 15px;
+}
+
+blockquote, body, code, dd, div, dl, dt, fieldset,
+ form, h1, h2, h3, h4, h5, h6, input, legend, li, 
+ ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: rgb(247, 249, 250);
+}
+
+[role=button], a, button, input[type=button], 
+input[type=reset], input[type=submit] {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+a * {
+    border: none;
+}
+
+@import "https://assets.ohou.se/design-system/bbf3fca1e650ee6d.css";
+@import "https://assets.ohou.se/fonts/pretendard/v1.3.8/pretendardvariable-dynamic-subset.css";
+@font-face{
+font-family:OhouseIcon;src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot);
+src:url(https://assets.ohou.se/design-system/3298ed52addbc709.eot#iefix) 
+format("embedded-opentype"),
+url(https://assets.ohou.se/design-system/d8923b386a66fd50.woff2) 
+format("woff2"),
+url(https://assets.ohou.se/design-system/9e79341d6a2fe0d2.woff) 
+format("woff"),
+url(https://assets.ohou.se/design-system/5355f736e6a7bc5b.ttf) 
+format("truetype"),
+url(https://assets.ohou.se/design-system/3ba7913eab100858.svg#OhouseIcon) 
+format("svg");
+}
+
+html{
+    font-family:'Pretendard Variable',sans-serif;
+    letter-spacing:-0.3px;-webkit-font-smoothing:antialiased;
+}
+
+/* nav */
+
+.all {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.myhome-nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page-navigation {
+    font-size: 18px;
+    overflow: visible;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.page-navigation > ul {
+    transform: translateX(0px);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.page-navigation__item {
+    display: inline-block;
+    user-select: none;
+    margin: 0 5px;
+}
+
+.page-navigation__item  > a.active {
+    color: #647FBC;
+}
+
+.page-navigation__item > a {
+    display: block;
+    padding: 0 10px;
+    font-weight: 700;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    transition: color .15s ease;
+}
+
+/* 내 정보 수정 시작 */
+
+.modify-form {
+    width: 343px;
+    margin: 0px auto;
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.modify {
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modify-label {
+    position: relative;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modify-label > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 50%;
+    border: 0;
+}
+
+.photo-icon {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: black;
+    width: 24px;
+    height: 24px;
+    border: 2px solid white;
+    box-sizing: content-box;
+}
+
+.img-input {
+    display: none;
+}
+
+.input-title {
+    width: 100%;
+    padding: 0px;
+}
+
+.name {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+    margin-bottom: 8px;
+    position: relative;
+    display: block;
+}
+
+.name::after {
+    position: absolute;
+    content: "*";
+    color: rgb(255, 119, 119);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.name-input {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(230, 230, 230);
+    background-color: rgb(247, 249, 250);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+}
+
+.read-name {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    outline: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.email {
+    display: flex;
+    color: rgb(90, 90, 90);
+    flex-direction: column;
+    cursor: default;
+    gap: 8px;
+    width: 100%;
+
+}
+
+.email-input {
+    width: 100%;
+    padding: 0px;
+    caret-color: transparent; /* 깜빡이는 입력 커서 숨김 */
+    pointer-events: none;     /* 마우스 클릭/입력 불가 */
+    user-select: none;
+}
+
+.email-label {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+    margin-bottom: 8px;
+    cursor: default;
+    position: relative;
+    display: block;
+}
+
+.email-label::after {
+    position: absolute;
+    content: "*";
+    color: rgb(255, 119, 119);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.email-div {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    background-color: rgb(247, 249, 250);
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+}
+
+.input-email {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.hint {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 4px;
+    color: rgb(130, 140, 148);
+}
+
+.bar {
+    margin: 0px;
+    padding: 0px;
+    height: 1px;
+    border: none;
+    background-color: rgb(234, 237, 239);
+    width: 100%;
+}
+
+.phone {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+    margin-bottom: 8px;
+    position: relative;
+    display: block;
+}
+
+input.form-control.essential.error{
+    border-color: rgb(255, 119, 119);
+}
+
+button.phone-certification:disabled, button.code-check:disabled{
+    opacity: 0.6;
+}
+
+div.limit-time{
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    font-size: 16px;
+}
+
+div.phone-input{
+    position: relative;
+}
+
+button.code-check{
+    position: absolute;
+    border: none;
+    background: none;
+    bottom: 9px;
+    right: 5px;
+    font-size: 16px;
+    color:#647FBC;
+}
+
+div.form-wrap{
+    position: relative;
+    margin-bottom: 10px;
+}
+
+div.phone-input{
+    position: relative;
+    display: flex;
+}
+
+span.form-input-local{
+    position: relative;
+    flex: 1 1 0px;
+}
+
+.phone-check {
+    margin-top: 10px;
+}
+
+input.form-control{
+    font-size: 15px;
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    color: #424242;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+    display: block;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+div.error-text-wrap{
+    bottom: -20px;
+    left: 0px;
+    display: none;
+    color: rgb(255, 119, 119);
+    font-size: 12px;
+}
+
+input.form-control.essential.error{
+    border-color: rgb(255, 119, 119);
+}
+
+input.form-control.phone{
+    width: 84%;
+}
+
+button.phone-certification{
+    white-space: pre;
+    height: 38px;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    background-color: #647FBC;
+    color: white;
+    border: 1px solid transparent;
+    font-family: Pretendard Variable;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color .1s, background-color .1s, border-color .1s;
+    border-radius: 4px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+button.phone-certification:disabled, button.code-check:disabled{
+    opacity: 0.6;
+}
+
+div.phone-input{
+    position: relative;
+}
+
+.form-control {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.birth {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+    margin-bottom: 8px;
+    position: relative;
+    display: block;
+}
+
+.birth::after {
+    position: absolute;
+    content: "*";
+    color: rgb(255, 119, 119);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.phone::after {
+   position: absolute;
+    content: "*";
+    color: rgb(255, 119, 119);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500; 
+}
+
+.birth-input {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+    background-color: rgb(247, 249, 250);
+    caret-color: transparent; /* 깜빡이는 입력 커서 숨김 */
+    pointer-events: none;     /* 마우스 클릭/입력 불가 */
+    user-select: none;
+}
+
+.birth-name {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.password-check-input {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+}
+
+.password-input {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+}
+
+.password {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.password-check {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+/* 성별 라디오 버튼 */
+
+.gender {
+    display: flex;
+    gap: 24px;
+}
+
+.gender-label {
+    display: inline-block;
+}
+
+.gender-male {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(194, 200, 204);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    transition: border-color 0.1s, background-color 0.1s;
+    vertical-align: middle;
+}
+
+.gender-male::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.5, 2, 0.5, 0.5);
+    background-color: rgb(255, 255, 255);
+}
+
+.gender-female {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(194, 200, 204);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    transition: border-color 0.1s, background-color 0.1s;
+    vertical-align: middle;
+}
+
+.gender-female::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.5, 2, 0.5, 0.5);
+    background-color: rgb(255, 255, 255);
+}
+
+.gender-radio {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.gender-label.active .gender-female, .gender-label.active .gender-male {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(10, 165, 255);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgb(10, 165, 255);
+    transition: border-color 0.1s, background-color 0.1s;
+    vertical-align: middle;
+}
+
+.gender-label.active .gender-female::before, .gender-label.active .gender-male::before {
+    transform: scale(1);
+}
+
+.gender-title {
+    font-size: 16px;
+    line-height: 20px;
+    vertical-align: middle;
+    margin-left: 6px;
+    color: rgb(47, 52, 56);
+}
+
+/* --------------------성별---------------------- */
+
+/* 주소 */
+
+div.address-code {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 70%;
+}
+
+input.address-code {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.certification {
+    white-space: pre;
+    height: 38px;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    background-color: #647FBC;
+    color: white;
+    border: 1px solid transparent;
+    font-family: Pretendard Variable;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color .1s, background-color .1s, border-color .1s;
+    border-radius: 4px;
+    position: absolute;
+    top: 0px;
+    right: -103px;
+}
+
+div.address {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+}
+
+input.address {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+div.address-detail {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 40px;
+    padding: 0px 14px;
+    width: 100%;
+}
+
+input.address-detail {
+    box-sizing: border-box;
+    flex: 1 0 0%;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    height: 100%;
+    color: #2F3438;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+}
+
+.puls {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+    margin-bottom: 8px;
+    position: relative;
+    display: block;
+}
+
+/* 탈퇴하기 */
+
+.inactive {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 24px 0px 0px;
+}
+
+.submit {
+    margin: 0px;
+    border: none;
+    background: none #647FBC;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+/* ===== 모달 기본 설정 ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+    z-index: 1000;
+
+    /* 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== 모달 내용 ===== */
+.modal-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+    width: 340px;
+    text-align: center;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.modal-content p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ===== 버튼 ===== */
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.modal-buttons a,
+.modal-buttons button {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.modal-buttons .confirm {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.modal-buttons .confirm:hover {
+    background-color: #c0392b;
+}
+
+.modal-buttons .cancel {
+    background-color: #ddd;
+    color: #333;
+}
+
+.modal-buttons .cancel:hover {
+    background-color: #bbb;
+}
+
+/* ===== 애니메이션 ===== */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 버튼 기본 스타일 제거 */
+button.delete-link {
+    all: unset; /* 🔥 버튼의 기본 스타일 전부 제거 */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.modal-content p {
+    line-height: 1.6; /* 기본 1.2~1.4 → 살짝 넓게 */
+}
+
+.modal-buttons .confirm {
+    display: flex;                /* flex 박스 */
+    justify-content: center;      /* 가로 가운데 정렬 */
+    align-items: center;          /* 세로 가운데 정렬 */
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px 0;
+    flex: 1;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-buttons .confirm:hover {
+    background-color: #c0392b;
+}
