@@ -74,4 +74,4 @@ COPY --from=build /aws-crew-station-back/build/libs/aws-crew-station-back-0.0.1-
 EXPOSE 10000
 
 # 실행 명령
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "aws-crew-station-back.jar"]
