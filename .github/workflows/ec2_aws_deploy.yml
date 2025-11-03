@@ -46,10 +46,10 @@ jobs:
             --build-arg KAKAO_CLIENT_SECRET=${{ secrets.KAKAO_CLIENT_SECRET }} \
             --build-arg NAVER_CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }} \
             --build-arg NAVER_CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }} \
-            --build-arg GMAIL_USER=${{secrets.GMAIL_USER}} \
-            --build-arg GMAIL_PASSWORD=${{secrets.GMAIL_PASSWORD}} \
-            --build-arg SMS_ACCESS_KEY=${{secrets.SMS_ACCESS_KEY}} \
-            --build-arg SMS_SECRET_KEY=${{secrets.SMS_SECRET_KEY}} \
+            --build-arg GMAIL_USER=${{ secrets.GMAIL_USER }} \
+            --build-arg GMAIL_PASSWORD=${{ secrets.GMAIL_PASSWORD }} \
+            --build-arg SMS_ACCESS_KEY=${{ secrets.SMS_ACCESS_KEY }} \
+            --build-arg SMS_SECRET_KEY=${{ secrets.SMS_SECRET_KEY }} \
           -t crew-station .
           docker run -d -p 80:10000 --name crew-station \
             -e EC2_HOST=${{ secrets.EC2_HOST }} \
@@ -65,8 +65,8 @@ jobs:
             -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
             -e GMAIL_USER=${{ secrets.GMAIL_USER}} \
             -e GMAIL_PASSWORD=${{ secrets.GMAIL_PASSWORD}} \
-            -e SMS_ACCESS_KEY=${{secrets.SMS_ACCESS_KEY}} \
-            -e SMS_SECRET_KEY=${{secrets.SMS_SECRET_KEY}} \
+            -e SMS_ACCESS_KEY=${{ secrets.SMS_ACCESS_KEY }} \
+            -e SMS_SECRET_KEY=${{ secrets.SMS_SECRET_KEY }} \
             crew-station
             
     - name: Clean up not used images
